@@ -36,48 +36,161 @@
               <div class="row">
                     <div class="col-sm-3">
                       <p><strong>Cheese</strong></p><br>
-                      <a href="#pizza1" data-toggle="collapse">
-                      <img class="img-circle img-responsive pizzaImg" src="images/cheese.png" alt="Cheese Pizza">
-                    </a>
-                    <div id="pizza1" class="collapse">
-                            <p>14" Five Cheese Pizza</p>
-                            <p>Tangy Tomato Sauce</p>
-                            <p>Pan Style Crust</p>
-                          </div>
+                      <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza1" src="images/cheese.png" alt="Cheese Pizza">
+                    
+
+<!-- Modal -->
+<div class="modal fade" id="pizza1" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-cutlery"></span>14" Cheese Pizza</h4>
+        <p><h3>Five Cheeses with Tangy Tomato Sauce<br>and Pan Style Crust</h3>
+        </p>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$10 per pizza</label>
+            <input type="number" class="form-control" id="psw" placeholder="How many?">
+          </div>
+          
+          <button type="submit" class="btn btn-block">Add to Cart</button>
+            <span class="glyphicon glyphicon-ok"></span>
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+          <span class="glyphicon glyphicon-remove"></span> Cancel
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
                     </div>
                     <div class="col-sm-3">
                       <p><strong>Pepperoni</strong></p><br>
-                      <a href="#pizza2" data-toggle="collapse">
-                      <img class="img-circle img-responsive pizzaImg" src="images/pepperoni.png" alt="Pepperoni Pizza">
-                    </a>
-                    <div id="pizza2" class="collapse">
-                            <p>14" Pepperoni Pizza</p>
-                            <p>Hearty Tomato Sauce</p>
-                            <p>Pan Style Crust</p>
-                          </div>
+                      <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza2" src="images/pepperoni.png" alt="Pepperoni Pizza">
+                    
+<!-- Modal -->
+<div class="modal fade" id="pizza2" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4><span class="glyphicon glyphicon-cutlery"></span>14" Pepperoni Pizza</h4>
+              <p><h3>Pepperoni with Hearty Tomato Sauce<br>and Pan Style Crust</h3>
+              </p>
+            </div>
+            <div class="modal-body">
+              <form role="form">
+                <div class="form-group">
+                  <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
+                  <input type="number" class="form-control" id="psw" placeholder="How many?">
+                </div>
+                
+                <button type="submit" class="btn btn-block">Add to Cart</button>
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+              </button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
                     </div>
                     <div class="col-sm-3">
                       <p><strong>Sausage</strong></p><br>
-                      <a href="#pizza3" data-toggle="collapse">
-                      <img class="img-circle img-responsive pizzaImg" src="images/sausage.png" alt="Sausage Pizza">
-                    </a>
-                    <div id="pizza3" class="collapse">
-                            <p>14" Sausage Pizza</p>
-                            <p>Hearty Tomato Sauce</p>
-                            <p>Pan Style Crust</p>
-                          </div>
+                      <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza3" src="images/sausage.png" alt="Sausage Pizza">
+                   
+<!-- Modal -->
+<div class="modal fade" id="pizza3" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4><span class="glyphicon glyphicon-cutlery"></span>14" Sausage Pizza</h4>
+              <p><h3>Sausage with Hearty Tomato Sauce<br>and Pan Style Crust</h3>
+              </p>
+            </div>
+            <div class="modal-body">
+              <form role="form">
+                <div class="form-group">
+                  <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
+                  <input type="number" class="form-control" id="psw" placeholder="How many?">
+                </div>
+                
+                <button type="submit" class="btn btn-block">Add to Cart</button>
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+              </button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
                     </div>
                     <div class="col-sm-3">
                         <p><strong>Veggie</strong></p><br>
-                        <a href="#pizza4" data-toggle="collapse">
-                        <img class="img-circle img-responsive pizzaImg" src="images/veggie.png" alt="Veggie Pizza">
-                    </a>
-                    <div id="pizza4" class="collapse">
-                            <p>14" Veggie Pizza</p>
-                            <p>Tangy Tomato Sauce</p>
-                            <p>Pan Style Crust</p>
-                          </div>
-                    </div>
+                        <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza4" src="images/veggie.png" alt="Veggie Pizza">
+                    <!-- Modal -->
+<div class="modal fade" id="pizza4" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4><span class="glyphicon glyphicon-cutlery"></span>14" Veggie Pizza</h4>
+              <p><h3>Veggie with Tangy Tomato Sauce<br>and Pan Style Crust</h3>
+              </p>
+            </div>
+            <div class="modal-body">
+              <form role="form">
+                <div class="form-group">
+                  <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$13 per pizza</label>
+                  <input type="number" class="form-control" id="psw" placeholder="How many?">
+                </div>
+                
+                <button type="submit" class="btn btn-block">Add to Cart</button>
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+              </button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
                   </div>
 
 
