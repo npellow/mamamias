@@ -1,3 +1,6 @@
-# mamamias
+# Mama Mia's
+# KU IT488 Scrum Project
 
-KU IT-488 scrum project 
+A web & mobile application for a pizza place.
+
+Live code can be found at http://mamamia.hellopellow.com
