@@ -1,7 +1,9 @@
-<!DOCTYPE HTML>
 <?php
 	session_start();
+	@ob_start();
 ?>
+
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>Mama Mia's Pizzeria</title>
