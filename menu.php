@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+
+<?php
+	session_start();
+
+
+?>
+<html>
+    <head>
+        <title>Mama Mia's Pizzeria</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- nav bar -->
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Mama Mia's</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="menu.php">Menu</a></li>
+									<?php if (!isset($_SESSION['u_id'])) {
+									echo   "<li><a href=\"login.php\">Sign In</a></li>";
+									}?>
+                  <li><a href="suggestions.php">Suggestions</a></li>
+                  <li><a href="cart.php"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+									<div class="float-right pull-right">
+									<?php
+										if (isset($_SESSION['u_id'])) {
+										echo "<p>You are logged in!</p>";
+										echo '<form action="includes/logout.inc.php" method="POST">
+											<button type="submit" name="submit" class="btn btn-default">Logout</button>
+										</form>';
+									 }
+										?>
+									</div>
+                </ul>
+
+              </div>
+            </div>
+          </nav>
+          <!-- end nav bar -->
+
+
+          <!-- start pizza menu
+            four images, each one with a pop up modal after img tag
+            modal shows info on pizza -->
+
+          <div class="container text-center" id="content">
+              <h1>Pizza Menu</h1>
+
+              <div class="row">
+
+                <!-- cheese pizza -->
+                    <div class="col-sm-3">
+                      <p><strong>Cheese</strong></p><br>
+                      <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza1" src="images/cheese.png" alt="Cheese Pizza">
+
+
+                    <!-- cheese pizze modal -->
+                    <div class="modal fade" id="pizza1" role="dialog">
+                    <div class="modal-dialog">
+
+                    <!-- modal content-->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="glyphicon glyphicon-cutlery"></span>14" Cheese Pizza</h4>
+                        <p><h3>Five Cheeses with Tangy Tomato Sauce<br>and Pan Style Crust</h3>
+                        </p>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                        <div class="form-group">
+                            <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$10 per pizza</label>
+                            <input type="number" class="form-control" id="psw" placeholder="How many?">
+                        </div>
+
+                        <button type="submit" class="btn btn-block">Add to Cart</button>
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cancel
+                        </button>
+
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- end modal for cheese pizza -->
+
+
+                    <!-- pepperoni pizza -->
+                    <div class="col-sm-3">
+                      <p><strong>Pepperoni</strong></p><br>
+                      <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza2" src="images/pepperoni.png" alt="Pepperoni Pizza">
+
+                    <!-- pepperoni modal -->
+                    <div class="modal fade" id="pizza2" role="dialog">
+                            <div class="modal-dialog">
+
+                            <!-- modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4><span class="glyphicon glyphicon-cutlery"></span>14" Pepperoni Pizza</h4>
+                                <p><h3>Pepperoni with Hearty Tomato Sauce<br>and Pan Style Crust</h3>
+                                </p>
+                                </div>
+                                <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                    <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
+                                    <input type="number" class="form-control" id="psw" placeholder="How many?">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-block">Add to Cart</button>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    </button>
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                                </button>
+
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- end pepperoni modal -->
+                    </div>
+
+                    <!-- sausage pizza -->
+                    <div class="col-sm-3">
+                      <p><strong>Sausage</strong></p><br>
+                      <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza3" src="images/sausage.png" alt="Sausage Pizza">
+
+                    <!-- sausage pizza modal -->
+                    <div class="modal fade" id="pizza3" role="dialog">
+                            <div class="modal-dialog">
+
+                            <!-- modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4><span class="glyphicon glyphicon-cutlery"></span>14" Sausage Pizza</h4>
+                                <p><h3>Sausage with Hearty Tomato Sauce<br>and Pan Style Crust</h3>
+                                </p>
+                                </div>
+                                <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                    <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
+                                    <input type="number" class="form-control" id="psw" placeholder="How many?">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-block">Add to Cart</button>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    </button>
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                                </button>
+
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- end sausage modal -->
+                    </div>
+
+                    <!-- veggie pizza -->
+                    <div class="col-sm-3">
+                        <p><strong>Veggie</strong></p><br>
+                        <img class="img-circle img-responsive pizzaImg" data-toggle="modal" data-target="#pizza4" src="images/veggie.png" alt="Veggie Pizza">
+
+                    <!-- veggie modal -->
+                    <div class="modal fade" id="pizza4" role="dialog">
+                            <div class="modal-dialog">
+
+                            <!-- modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4><span class="glyphicon glyphicon-cutlery"></span>14" Veggie Pizza</h4>
+                                <p><h3>Veggie with Tangy Tomato Sauce<br>and Pan Style Crust</h3>
+                                </p>
+                                </div>
+                                <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                    <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$13 per pizza</label>
+                                    <input type="number" class="form-control" id="psw" placeholder="How many?">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-block">Add to Cart</button>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    </button>
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                                </button>
+
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- end veggie modal -->
+                  </div>
+
+
+          </div>
+
+    </body>
+</html>
