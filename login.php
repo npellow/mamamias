@@ -31,21 +31,21 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Mama Mia's</a>
+                <a class="navbar-brand" href="index">Mama Mia's</a>
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="menu.php">Menu</a></li>
+                  <li><a href="menu">Menu</a></li>
                   <?php if (!isset($_SESSION['u_id'])) {
-                  echo   "<li><a href=\"login.php\">Sign In</a></li>";
+                  echo   "<li><a href=\"login\">Sign In</a></li>";
                   }?>
-                  <li><a href="suggestions.php">Suggestions</a></li>
+                  <li><a href="suggestions">Suggestions</a></li>
                   <li><a href="cart.html"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                   <div class="float-right pull-right">
                   <?php
                     if (isset($_SESSION['u_id'])) {
                     echo "<p>You are logged in!</p>";
-                    echo '<form action="includes/logout.inc.php" method="POST">
+                    echo '<form action="includes/logout.inc" method="POST">
                       <button type="submit" name="submit" class="btn btn-default">Logout</button>
                     </form>';
                    }
@@ -74,7 +74,7 @@
 
                         <div id="login" class="tab-pane fade in active">
                           <h3>Login</h3>
-                          <form action="includes/login.inc.php" method="POST">
+                          <form action="includes/login.inc" method="POST">
                             <div class="form-group">
                               <label for="email" >Email address:</label>
                               <input type="text" name="uid" class="form-control"  >
@@ -94,7 +94,7 @@
                         <!-- sign up form -->
                         <div id="signup" class="tab-pane fade">
                           <h3>Sign Up</h3>
-                          <form action="includes/signup.inc.php" method="POST">
+                          <form action="includes/signup.inc" method="POST">
                             <div class="form-group">
                               <label for="fname">First name:</label>
                               <input type="text"  name="first" class="form-control" id="fname">

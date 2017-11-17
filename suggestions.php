@@ -27,24 +27,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Mama Mia's</a>
+            <a class="navbar-brand" href="index">Mama Mia's</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="menu.php">Menu</a></li>
+                    <li><a href="menu">Menu</a></li>
                     	<?php if (!isset($_SESSION['u_id'])) {
-                      echo   "<li><a href=\"login.php\">Sign In</a></li>";
+                      echo   "<li><a href=\"login\">Sign In</a></li>";
                       }?>
 
-                    <li><a href="suggestions.php">Suggestions</a></li>
-                    <li><a href="cart.php">
+                    <li><a href="suggestions">Suggestions</a></li>
+                    <li><a href="cart">
 
                       <i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                     <div class="float-right pull-right">
   									<?php
   										if (isset($_SESSION['u_id'])) {
   										echo "<p>You are logged in!</p>";
-  										echo '<form action="includes/logout.inc.php" method="POST">
+  										echo '<form action="includes/logout.inc" method="POST">
   											<button type="submit" name="submit" class="btn btn-default">Logout</button>
   										</form>';
   									 }
