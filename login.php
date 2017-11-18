@@ -21,7 +21,6 @@
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
-
         <!-- nav bar -->
         <nav class="navbar navbar-default">
             <div class="container" id="mcon">
@@ -44,7 +43,7 @@
                   <div class="float-right pull-right">
                   <?php
                     if (isset($_SESSION['u_id'])) {
-                  
+
                     echo '<form action="includes/logout.inc" method="POST">
                       <button type="submit" name="submit" class="btn btn-default">Logout</button>
                     </form>';

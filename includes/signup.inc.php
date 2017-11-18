@@ -8,24 +8,24 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $uid   = $_POST['email'];
     $pwd   = $_POST['pwd'];
-    
+
     //Error handlers
     //Check for empty fields
     if (empty($first) || empty($last) || empty($email) || empty($pwd)) {
 
-        header("Location: ../login?=FieldsAreEmpty");
+        header("Location: ../login?signup=Invalid+attempt+Fields+Are+Empty");
         exit();
     } else {
         //Check if input characters are valid
         if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
 
-            header("Location: ../login?signup=invalid");
+            header("Location: ../login?signup=Invalid+Input");
             exit();
         } else {
             //Check if email is valid
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-								header("Location: ../login?signup=emailInvalid");
+								header("Location: ../login?signup=Invalid+Email");
                 exit();
             } else {
 
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
                 $resultCheck = $sql->fetch();
 
                 if ($resultCheck > 0) {
-                    header("Location: ../login?signup=userTaken");
+                    header("Location: ../login?signup=Invalid+attempt+there+is+already+an+user+with+the+same+Email");
                     exit();
                 } else {
                     //Hashing the password
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
                     $sql->bindParam(':uid', $uid);
                     $sql->bindParam(':hashedPwd', $hashedPwd);
                     $sql->execute();
-                    header("Location: ../login?signup=success");
+                    header("Location: ../login?signup=Success");
                     exit();
                 }
             }
@@ -56,6 +56,6 @@ if (isset($_POST['submit'])) {
     }
 
 } else {
-    header("Location: ../signup.php");
+    header("Location: ../signup");
     exit();
 }

@@ -15,18 +15,15 @@
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
-
       <!-- nav bar -->
         <nav class="navbar navbar-default">
             <div class="container" id="mcon">
               <div class="navbar-header">
-
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
 								</button>
-
                 <a class="navbar-brand" href="index">Mama Mia's</a>
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
