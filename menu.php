@@ -40,7 +40,8 @@
 									<div class="float-right pull-right">
 									<?php
 										if (isset($_SESSION['u_id'])) {
-										echo "<p>You are logged in!</p>";
+                    echo "Hi, {$_SESSION['u_first']}";
+										
 										echo '<form action="includes/logout.inc" method="POST">
 											<button type="submit" name="submit" class="btn btn-default">Logout</button>
 										</form>';

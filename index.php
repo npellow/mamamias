@@ -18,7 +18,7 @@
 
       <!-- nav bar -->
         <nav class="navbar navbar-default">
-            <div class="container">
+            <div class="container" id="mcon">
               <div class="navbar-header">
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -40,8 +40,8 @@
 									<div class="float-right pull-right">
 									<?php
 										if (isset($_SESSION['u_id'])) {
-										echo "<p>You are logged in!</p>";
-
+											echo "Hi, {$_SESSION['u_first']}";
+										echo "<p id=\"loggedIn\">You are logged in!</p>";
 										echo '<form action="includes/logout.inc" method="POST">
 											<button type="submit" name="submit" class="btn btn-default">Logout</button>
 										</form>';
@@ -60,6 +60,41 @@
                   <img class="img-responsive" src="images/logo.jpg" alt="Mama Mia logo">
               </div>
           </div>
+					<script>
+
+					$(document).ready(function() {
+						if (/Success/.test(window.location.href)){
+							//vars
+						var div = document.createElement("div");
+						var diva = document.createElement("a");
+
+					//div
+						div.innerHTML = " <strong>Success</strong> You are logged in";
+						div.classList.add('alert');
+						div.classList.add('alert-success');
+						div.classList.add('alert-dismissable');
+
+
+					//diva
+						diva.innerHTML ='x';
+						diva.setAttribute('data-dismiss',"alert");
+						diva.setAttribute('aria-labe',"close");
+						diva.href='#';
+						diva.classList.add('close');
+					//add vars to dom
+						document.getElementById("mcon").appendChild(div);
+						div.appendChild(diva);
+						document.getElementById("loggedIn").innerHTML="";
+					}
+					/*else if (/Success/.test(window.location.href)) {
+
+					 	 //alert(" Login Success");
+					 }*/
+
+
+					});
+					</script>
+
 
     </body>
 </html>

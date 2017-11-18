@@ -1,4 +1,5 @@
 Options +FollowSymLinks
+Options +MultiViews
 RewriteEngine on
 
 # for adding .html extension if matching file exists
@@ -14,4 +15,4 @@ RewriteRule ^(.+?)/?$ /$1.php [L]
 # for adding .css extension if matching file exists
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1\.css -f [NC]
-RewriteRule ^(.+?)/?$ /$1.php [L]
+RewriteRule ^(.+?)/?$ /$1.css [L]
