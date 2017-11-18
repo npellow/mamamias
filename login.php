@@ -1,8 +1,6 @@
-
-
 <?php
-	session_start();
-	@ob_start();
+session_start();
+@ob_start();
 ?>
 
 <!DOCTYPE HTML>
@@ -130,7 +128,9 @@ $(document).ready(function() {
 	var diva = document.createElement("a");
 
 //div
-	div.innerHTML = " <strong>Login Failed</strong> Please login again, we could not verify your account";
+	var errorMess= new URL(window.location.href).searchParams.get("message");
+
+	div.innerHTML = " <b>Login Failed: <i>"+errorMess+"</i></b> Please login again, we could not verify your account";
 	div.classList.add('alert');
 	div.classList.add('alert-danger');
 	div.classList.add('alert-dismissable');

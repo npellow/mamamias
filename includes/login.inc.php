@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) { //confirms post operation
     //Check if inputs are empty
     if (empty($uid) || empty($pwd)) {
 
-        header("Location: ../login?=Invalid+Login");
+        header("Location: ../login?message=Invalid+Login");
 phpAlert('hi');
         exit();
     } else {
@@ -24,14 +24,14 @@ phpAlert('hi');
         $result      = $sql->execute();
         $resultCheck = $sql->fetch();
         if ($resultCheck < 1) {
-            header("Location: ../login?=Invalid+Password+OR+Username");
+            header("Location: ../login?message=Invalid+Password+OR+Username");
             exit();
         } else {
             if ($row = $resultCheck) {
                 //De-hashing the password
                 $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
                 if ($hashedPwdCheck == false) {
-                    header("Location: ../login?=Invalid+Password+OR+Username");
+                    header("Location: ../login?message=Invalid+Password+OR+Username");
                     exit();
                 } elseif ($hashedPwdCheck == true) {
                     //Log in the user here

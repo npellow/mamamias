@@ -13,19 +13,19 @@ if (isset($_POST['submit'])) {
     //Check for empty fields
     if (empty($first) || empty($last) || empty($email) || empty($pwd)) {
 
-        header("Location: ../login?signup=Invalid+attempt+Fields+Are+Empty");
+        header("Location: ../login?message=Signup+is+Invalid+the+Fields+are+Empty");
         exit();
     } else {
         //Check if input characters are valid
         if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
 
-            header("Location: ../login?signup=Invalid+Input");
+            header("Location: ../login?message=Signup+has+Invalid+Input");
             exit();
         } else {
             //Check if email is valid
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-								header("Location: ../login?signup=Invalid+Email");
+								header("Location: ../login?message=Signup+has+invalid+Email");
                 exit();
             } else {
 
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
                 $resultCheck = $sql->fetch();
 
                 if ($resultCheck > 0) {
-                    header("Location: ../login?signup=Invalid+attempt+there+is+already+an+user+with+the+same+Email");
+                    header("Location: ../login?message=Signup+Invalid+there+a+user+exists+ with+the+same+Email");
                     exit();
                 } else {
                     //Hashing the password
