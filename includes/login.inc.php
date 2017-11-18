@@ -47,6 +47,6 @@ phpAlert('hi');
         }
     }
 } else {
-    header("Location: ../login?login=Invalid+Attempts+Unknown+error");
+    header("Location: ../login?message=Invalid+Attempt+Unknown+error");
     exit();
 } ?>

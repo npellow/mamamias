@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+  `user_uid` int(11) NOT NULL,
   `user_firstname` varchar(256) NOT NULL,
   `user_lastname` varchar(256) NOT NULL,
   `user_email` varchar(256) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_firstname`, `user_lastname`, `user_email`, `user_pwd`) VALUES
+INSERT INTO `users` (`user_uid`, `user_firstname`, `user_lastname`, `user_email`, `user_pwd`) VALUES
 (6, 'bob', 'jones', 'bob@test.com', 'hashedpasswordex'),
 
 
@@ -50,7 +50,7 @@ INSERT INTO `users` (`user_id`, `user_firstname`, `user_lastname`, `user_email`,
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_uid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -60,7 +60,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
