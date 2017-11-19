@@ -37,7 +37,7 @@ session_start();
                   echo   "<li><a href=\"login\">Sign In</a></li>";
                   }?>
                   <li><a href="suggestions">Suggestions</a></li>
-                  <li><a href="cart.html"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+                  <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                   <div class="float-right pull-right">
                   <?php
                     if (isset($_SESSION['u_id'])) {
