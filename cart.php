@@ -1,9 +1,6 @@
 <?php
 	session_start();
 	@ob_start();
-	include("includes/functions.php");
-	session_timeout();
-
 ?>
 
 <!DOCTYPE HTML>
@@ -16,7 +13,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-				<script src="../customjs/userdefined.js"></script>
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
@@ -60,14 +56,5 @@
 
           </div>
 
-
-					<script>
-					$(document).ready(function()
-						{
-							message= "<?php echo  $_SESSION['Message']; ?>";
-							successMessage(message);
-							errorMessage(message);
-					});
-					</script>
   </body>
 </html>
