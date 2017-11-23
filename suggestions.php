@@ -70,7 +70,7 @@
 			<div class="form-group row">
 			  <label for="example-text-input" class="col-2 col-form-label"> Name:</label>
 			  <div class="col-10">
-			    <input class="form-control" type="text" value="<?php if(isset($_SESSION['u_id'])){ echo  $_SESSION['u_first']. " " .$_SESSION['u_last'];} ?>" name="first_name">
+			    <input class="form-control" type="text" value="<?php if(isset($_SESSION['u_id'])){ echo  $_SESSION['u_first']. " " .$_SESSION['u_last'];} ?>" name="name">
 			  </div>
 			</div>
 			<div class="form-group row">

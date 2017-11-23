@@ -74,6 +74,7 @@ ini_set('smtp_port',25);
     $email_subject = "Email Suggestion";
 
     function died($error) {
+			
         // your error code can go here
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br /><br />";
