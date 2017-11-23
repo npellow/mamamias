@@ -21,7 +21,7 @@ phpAlert('hi');
     } else {
         $sql = $conn->prepare("SELECT * FROM users WHERE  user_email=:uid");
         $sql->bindParam(':uid', $uid);
-        $result      = $sql->execute();
+        $result = $sql->execute();
         $resultCheck = $sql->fetch();
         if ($resultCheck < 1) {
             header("Location: ../login?message=Invalid+Password+OR+Username");
@@ -29,9 +29,24 @@ phpAlert('hi');
         } else {
             if ($row = $resultCheck) {
                 //De-hashing the password
-                $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
+                 $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
                 if ($hashedPwdCheck == false) {
                     header("Location: ../login?message=Invalid+Password+OR+Username");
+
+
+
+                    $sql2 = "UPDATE users SET attempts=:num WHERE id=:id ";
+                     $sql->bindParam(':id', $uid);
+                      $sql->bindParam(':num', +1);
+      // Prepare statement
+      $stmt = $conn->prepare($sql2);
+
+      // execute the query
+      $stmt->execute();
+
+      // echo a message to say the UPDATE succeeded
+      echo $stmt->rowCount();
+
                     exit();
                 } elseif ($hashedPwdCheck == true) {
                     //Log in the user here
@@ -40,6 +55,8 @@ phpAlert('hi');
                     $_SESSION['u_last']  = $row['user_lastname'];
                     $_SESSION['u_email'] = $row['user_email'];
                     $_SESSION['u_uid']   = $row['user_uid'];
+                    $_SESSION['last_time']  = time();
+                    $_SESSION['Message']  = 'Success';
                     header("Location: ../index?login=Success");
                     exit();
                 }

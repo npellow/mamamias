@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	@ob_start();
+	include("includes/functions.php");
+ 	session_timeout();
 ?>
 
 <!DOCTYPE HTML>
@@ -13,6 +15,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<script src="../customjs/userdefined.js"></script>
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
@@ -41,7 +44,7 @@
 									<?php
 										if (isset($_SESSION['u_id'])) {
                     echo "Hi, {$_SESSION['u_first']}";
-										
+
 										echo '<form action="includes/logout.inc" method="POST">
 											<button type="submit" name="submit" class="btn btn-default">Logout</button>
 										</form>';
@@ -85,9 +88,9 @@
                     </div>
                     <div class="modal-body">
                         <form role="form">
-                        <div class="form-group">
+                        <div class="form-group" id="grp">
                             <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$10 per pizza</label>
-                            <select id="cheeseNum" class="form-control">
+                            <select id="cheeseNum" class="form-control" onclick="getPrice()">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -100,7 +103,7 @@
                                 <option value="10">10</option>
                             </select>
                         </div>
-
+                        <h4 id="price"></h4>
                         <button type="submit" class="btn btn-block">Add to Cart</button>
                             <span class="glyphicon glyphicon-ok"></span>
                         </button>
@@ -140,7 +143,7 @@
                                 <form role="form">
                                     <div class="form-group">
                                     <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
-                                
+
                                     <select id="pepNum" class="form-control">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -278,7 +281,20 @@
                   </div>
 
 
-          </div>
+		          </div>
+							<script>
 
+
+							$(document).ready(function()
+						{
+
+							message= "<?php echo  $_SESSION['Message']; ?>";
+						successMessage(message);
+						errorMessage(message);
+
+
+          getPrice("cheeseNum",10.00,"price");
+					});
+					</script>
     </body>
 </html>

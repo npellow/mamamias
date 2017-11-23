@@ -56,6 +56,6 @@ if (isset($_POST['submit'])) {
     }
 
 } else {
-    header("Location: ../signup");
+    header("Location: ../signup?message=Signup+Invalid+due+to+unknown+reasons");
     exit();
 }

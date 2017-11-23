@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	@ob_start();
+	include("includes/functions.php");
+	session_timeout();
 ?>
 
 <!DOCTYPE HTML>
@@ -12,9 +14,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<script src="../customjs/userdefined.js"></script>
         <link href="css/index.css" rel="stylesheet">
     </head>
-    <body>
+    <body >
       <!-- nav bar -->
         <nav class="navbar navbar-default">
             <div class="container" id="mcon">
@@ -58,37 +61,12 @@
               </div>
           </div>
 					<script>
-
-					$(document).ready(function() {
-						if (/Success/.test(window.location.href)){
-							//vars
-						var div = document.createElement("div");
-						var diva = document.createElement("a");
-
-					//div
-						div.innerHTML = " <strong>Success</strong> You are logged in";
-						div.classList.add('alert');
-						div.classList.add('alert-success');
-						div.classList.add('alert-dismissable');
-
-
-					//diva
-						diva.innerHTML ='x';
-						diva.setAttribute('data-dismiss',"alert");
-						diva.setAttribute('aria-labe',"close");
-						diva.href='#';
-						diva.classList.add('close');
-					//add vars to dom
-						document.getElementById("mcon").appendChild(div);
-						div.appendChild(diva);
-						document.getElementById("loggedIn").innerHTML="";
-					}
-					/*else if (/Success/.test(window.location.href)) {
-
-					 	 //alert(" Login Success");
-					 }*/
-
-
+					$(document).ready(function()
+						{
+							message= "<?php echo  $_SESSION['Message']; ?>";
+							successMessage(message);
+							errorMessage(message);
+							
 					});
 					</script>
 

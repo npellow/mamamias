@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	@ob_start();
+	include("includes/functions.php");
+	session_timeout();
 ?>
 
 <!DOCTYPE HTML>
@@ -14,6 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="../customjs/userdefined.js"></script>
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
@@ -59,60 +62,49 @@
     <div class="container" id="content">
 
     <form name="contactform" method="post" action="send_form_email.php">
-        <table width="450px">
-            <tr>
-                <td valign="top">
-                    <label for="first_name">First Name *</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="first_name" maxlength="50" size="30">
-                </td>
-            </tr>
 
-            <tr>
-                <td valign="top">
-                    <label for="last_name">Last Name *</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="last_name" maxlength="50" size="30">
-                </td>
-            </tr>
 
-            <tr>
-                <td valign="top">
-                    <label for="email">Email Address *</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="email" maxlength="80" size="30">
-                </td>
-            </tr>
 
-            <tr>
-                <td valign="top">
-                    <label for="telephone">Telephone Number</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="telephone" maxlength="30" size="30">
-                </td>
-            </tr>
 
-            <tr>
-                <td valign="top">
-                    <label for="comments">Comments *</label>
-                </td>
-                <td valign="top">
-                    <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
-                </td>
-            </tr>
 
-            <tr>
-                <td colspan="2" style="text-align:center">
-                    <input type="submit" value="Submit">
+			<div class="form-group row">
+			  <label for="example-text-input" class="col-2 col-form-label"> Name:</label>
+			  <div class="col-10">
+			    <input class="form-control" type="text" value="<?php if(isset($_SESSION['u_id'])){ echo  $_SESSION['u_first']. " " .$_SESSION['u_last'];} ?>" name="first_name">
+			  </div>
+			</div>
+			<div class="form-group row">
+
+			  <label for="example-email-input" class="col-2 col-form-label">Preferred Email:</label>
+			  <div class="col-10">
+			    <input class="form-control" type="email" value="<?php if(isset($_SESSION['u_id'])){ echo $_SESSION['u_email'];}?>" name="email">
+			  </div>
+			</div>
+
+			<div class="form-group row">
+			  <label for="example-color-input" class="col-2 col-form-label">Comments:</label>
+			  <div class="col-10">
+			     <textarea class="form-control" id="exampleTextarea" rows="3" name="comments"></textarea>
+			  </div>
+			</div>
+
+
+                    <input type="submit" value="Send Email"  class="btn btn-primary">
                 </td>
             </tr>
         </table>
+			</div >
     </form>
 
     </div>
+
+		<script>
+		$(document).ready(function()
+			{
+				message= "<?php echo  $_SESSION['Message']; ?>";
+				successMessage(message);
+				errorMessage(message);
+		});
+		</script>
 </body>
 </html>
