@@ -40,15 +40,15 @@
 
                       <i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                     <div class="float-right pull-right">
-  									<?php
-  										if (isset($_SESSION['u_id'])) {
-  										echo "Hi, {$_SESSION['u_first']}";
-  										echo '<form action="includes/logout.inc" method="POST">
-  											<button type="submit" name="submit" class="btn btn-default">Logout</button>
-  										</form>';
-  									 }
-  										?>
-  									</div>
+  						<?php
+  						    if (isset($_SESSION['u_id'])) {
+  								echo "Hi, {$_SESSION['u_first']}";
+  								echo '<form action="includes/logout.inc" method="POST">
+  							        	<button type="submit" name="submit" class="btn btn-default">Logout</button>
+  									  </form>';
+  							}
+  						?>
+  					</div>
                 </ul>
             </div>
         </div>
@@ -56,66 +56,35 @@
     <!-- end nav bar -->
 
     <!-- start page content -->
-    
+
     <div class="container" id="content">
-
-    <form name="contactform" method="post" action="send_form_email.php">
-        <table width="450px">
-            <tr>
-                <h4>If you have a pizza choice suggestions, please let us know below.</h4>
-                </br>
-                <td valign="top">
+        <ul class="nav nav-tabs">
+            <ul class="input">If you have a pizza choice suggestions, that we don't already have. Please let us know below.</ul>
+        </ul>
+    
+        <form name="contactform" method="post" action="send_form_email.php" class="tab-pane fade in active form-group">
+            <table width="450px">
+                <tr>
+                    </br>
                     <label for="first_name">First Name *</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="first_name" maxlength="50" size="30">
-                </td>
-            </tr>
-
-            <tr>
-                <td valign="top">
+                    <input style="background: #faffbd" type="text" name="first_name" class="form-control">
+                    </br>
                     <label for="last_name">Last Name *</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="last_name" maxlength="50" size="30">
-                </td>
-            </tr>
-
-            <tr>
-                <td valign="top">
+                    <input style="background: #faffbd" type="text" name="last_name" class="form-control">
+                    </br>
                     <label for="email">Email Address *</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="email" maxlength="80" size="30">
-                </td>
-            </tr>
-
-            <tr>
-                <td valign="top">
+                    <input style="background: #faffbd" type="text" name="email" class="form-control">
+                    </br>
                     <label for="telephone">Telephone Number</label>
-                </td>
-                <td valign="top">
-                    <input  type="text" name="telephone" maxlength="30" size="30">
-                </td>
-            </tr>
-
-            <tr>
-                <td valign="top">
+                    <input style="background: #faffbd" type="text" name="telephone" class="form-control">
+                    </br>
                     <label for="comments">Comments *</label>
-                </td>
-                <td valign="top">
-                    <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2" style="text-align:center">
+                    <textarea style="background: #faffbd" name="comments" maxlength="300" class="form-control"></textarea>
+                    </br>
                     <input type="submit" value="Submit">
-                </td>
-            </tr>
-        </table>
-    </form>
-
+                </tr>
+            </table>
+        </form>
     </div>
 </body>
 </html>
