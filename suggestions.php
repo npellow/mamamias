@@ -56,11 +56,14 @@
     <!-- end nav bar -->
 
     <!-- start page content -->
+    
     <div class="container" id="content">
 
     <form name="contactform" method="post" action="send_form_email.php">
         <table width="450px">
             <tr>
+                <h4>If you have a pizza choice suggestions, please let us know below.</h4>
+                </br>
                 <td valign="top">
                     <label for="first_name">First Name *</label>
                 </td>
