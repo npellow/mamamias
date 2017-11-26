@@ -88,6 +88,7 @@
                         <div class="form-group">
                             <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$10 per pizza</label>
                             <select id="cheeseNum" class="form-control">
+                                <option value="0">How many?</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -100,6 +101,8 @@
                                 <option value="10">10</option>
                             </select>
                         </div>
+
+                        <h3>Total: $<label class="resultCheese"></label></h3>
 
                         <button type="submit" class="btn btn-block">Add to Cart</button>
                             <span class="glyphicon glyphicon-ok"></span>
@@ -142,6 +145,7 @@
                                     <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
                                 
                                     <select id="pepNum" class="form-control">
+                                        <option value="0">How many?</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -154,6 +158,8 @@
                                         <option value="10">10</option>
                                     </select>
                                     </div>
+
+                                    <h3>Total: $<label class="resultPep"></label></h3>
 
                                     <button type="submit" class="btn btn-block">Add to Cart</button>
                                     <span class="glyphicon glyphicon-ok"></span>
@@ -195,6 +201,7 @@
                                     <div class="form-group">
                                     <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
                                     <select id="sausageNum" class="form-control">
+                                        <option value="0">How many?</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -207,6 +214,8 @@
                                         <option value="10">10</option>
                                     </select>
                                     </div>
+
+                                    <h3>Total: $<label class="resultSausage"></label></h3>
 
                                     <button type="submit" class="btn btn-block">Add to Cart</button>
                                     <span class="glyphicon glyphicon-ok"></span>
@@ -247,6 +256,7 @@
                                     <div class="form-group">
                                     <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$13 per pizza</label>
                                     <select id="vegNum" class="form-control">
+                                        <option value="0">How many?</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -259,6 +269,8 @@
                                         <option value="10">10</option>
                                     </select>
                                     </div>
+
+                                    <h3>Total: $<label class="resultVeg"></label></h3>
 
                                     <button type="submit" class="btn btn-block">Add to Cart</button>
                                     <span class="glyphicon glyphicon-ok"></span>
@@ -279,6 +291,8 @@
 
 
           </div>
+
+          <script src="customjs/menu.js"></script>
 
     </body>
 </html>
