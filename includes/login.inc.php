@@ -2,7 +2,13 @@
 //checks if user has a session
 session_start();
 
+if(!isset($_SESSION['logonCounter'])) {
+$_SESSION['LogonCounter'] = 0;
+$sessionCnt= (int) $_SESSION['LogonCounter'];
 
+} else{
+  $sessionCnt= (int) $_SESSION['LogonCounter'];
+}
 
 if (isset($_POST['submit'])) { //confirms post operation
 
@@ -27,11 +33,21 @@ phpAlert('hi');
             header("Location: ../login?message=Invalid+Password+OR+Username");
             exit();
         } else {
+
             if ($row = $resultCheck) {
                 //De-hashing the password
                 $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
+
+
                 if ($hashedPwdCheck == false) {
-                    header("Location: ../login?message=Invalid+Password+OR+Username");
+                 (int) $sessionCnt;
+                  $sessionCnt++;
+                  if( $sessionCnt <3) {
+                     header("Location: ../login?message=The+Referenced+Account+is+Locked+Out");
+
+                   }
+                   $_SESSION['LogonCounter']=$sessionCnt;
+                    header("Location: ../login?message=Invalid+Password+OR+Username"  .$sessionCnt);
                     exit();
                 } elseif ($hashedPwdCheck == true) {
                     //Log in the user here

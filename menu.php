@@ -41,7 +41,7 @@
 									<?php
 										if (isset($_SESSION['u_id'])) {
                     echo "Hi, {$_SESSION['u_first']}";
-										
+
 										echo '<form action="includes/logout.inc" method="POST">
 											<button type="submit" name="submit" class="btn btn-default">Logout</button>
 										</form>';
@@ -102,9 +102,9 @@
                             </select>
                         </div>
 
-                        <h3>Total: $<label class="resultCheese"></label></h3>
+                        <h3>Total: $<label class="resultCheese" id="resultCheese"></label></h3>
 
-                        <button type="submit" class="btn btn-block">Add to Cart</button>
+                        <button type="submit"  onclick="displayOnCartCheese()" class="btn btn-block">Add to Cart</button>
                             <span class="glyphicon glyphicon-ok"></span>
                         </button>
                         </form>
@@ -143,7 +143,7 @@
                                 <form role="form">
                                     <div class="form-group">
                                     <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>$12 per pizza</label>
-                                
+
                                     <select id="pepNum" class="form-control">
                                         <option value="0">How many?</option>
                                         <option value="1">1</option>
@@ -159,9 +159,9 @@
                                     </select>
                                     </div>
 
-                                    <h3>Total: $<label class="resultPep"></label></h3>
+                                    <h3>Total: $<label class="resultPep" id="Pepp"></label></h3>
 
-                                    <button type="submit" class="btn btn-block">Add to Cart</button>
+                                    <button type="submit"  onclick="displayOnCartPepp()" class="btn btn-block">Add to Cart</button>
                                     <span class="glyphicon glyphicon-ok"></span>
                                     </button>
                                 </form>
@@ -215,9 +215,9 @@
                                     </select>
                                     </div>
 
-                                    <h3>Total: $<label class="resultSausage"></label></h3>
+                                    <h3>Total: $<label class="resultSausage" id="sausage"></label></h3>
 
-                                    <button type="submit" class="btn btn-block">Add to Cart</button>
+                                    <button type="submit"   onclick="displayOnCartSausage()" class="btn btn-block">Add to Cart</button>
                                     <span class="glyphicon glyphicon-ok"></span>
                                     </button>
                                 </form>
@@ -270,9 +270,9 @@
                                     </select>
                                     </div>
 
-                                    <h3>Total: $<label class="resultVeg"></label></h3>
+                                    <h3>Total: $<label class="resultVeg" id="veg"></label></h3>
 
-                                    <button type="submit" class="btn btn-block">Add to Cart</button>
+                                    <button type="submit"  onclick="displayOnCartVeg()" class="btn btn-block">Add to Cart</button>
                                     <span class="glyphicon glyphicon-ok"></span>
                                     </button>
                                 </form>
