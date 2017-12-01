@@ -156,7 +156,7 @@
 
         }
 
-
+        // show pizza totals
         if (parseInt(name) === 0) {} else {
             document.getElementById("items").innerHTML = "Cheese Pizza Total: $" + name;
         }
@@ -177,7 +177,7 @@
             document.getElementById("items4").innerHTML = "Sausage Pizza Total: $" + name3;
         }
 
-
+        //show total due
         total = Number(name) + Number(name1) + Number(name2) + Number(name3);
 
         if (!total == 0) {
@@ -187,6 +187,7 @@
             localStorage.setItem("total", total);
         }
 
+        // cancel button
         function removeItems() {
             localStorage.clear();
             $('#items').hide();
@@ -197,6 +198,7 @@
             document.getElementById("cancel").innerHTML = "Items Removed Successfully";
         }
 
+        //payment
         function payment() {
             var myElement = document.getElementById('my-div');
             var pageWidth = window.innerWidth,
@@ -221,7 +223,7 @@
         function orderComplete() {
 
 
-
+            // thank you for your order message
             $(document).ready(function() {
                 $("#my-div").remove();
                 $('body').append('<div id="div4" class="text-center"><h2>Thank you for your order! <br> Your pizza will be ready for pickup in about 30 minutes!</h2></div>');
