@@ -231,6 +231,7 @@
                 $('body').append('<div id="div4" class="text-center"><h2>Thank you for your order! <br> Your pizza will be ready for pickup in about 30 minutes!</h2></div>');
                 var top = ($(window).height() - $(this).outerHeight()) / 2;
                 var left = ($(window).width() - $(this).outerWidth()) / 2;
+                localStorage.clear();
                 
             });
 
