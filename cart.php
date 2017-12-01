@@ -195,6 +195,8 @@
             $('#items3').hide();
             $('#items4').hide();
             $('#totals').hide();
+            $('#my-btn').hide();
+            $('#my-btn2').hide();
             document.getElementById("cancel").innerHTML = "Items Removed Successfully";
         }
 
