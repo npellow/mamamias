@@ -50,6 +50,7 @@
             <h3 id="items3"></h3>
             <h3 id="items4"></h3>
             <h3 id="totals" style="font-weight: bold;"></h3>
+            <h3 id="cancel"></h3>
             <br>
             <button class="btn-success  btn-lg" type="button" id="my-btn" onclick="payment()">Buy</button>
             <button class="btn-danger  btn-lg" type="submit" onclick="removeItems()" id="my-btn2">Cancel</button>
@@ -184,6 +185,16 @@
             successButton.style.display = "inline";
             dangerButton.style.display = "inline";
             localStorage.setItem("total", total);
+        }
+
+        function removeItems() {
+            localStorage.clear();
+            $('#items').hide();
+            $('#items2').hide();
+            $('#items3').hide();
+            $('#items4').hide();
+            $('#totals').hide();
+            document.getElementById("cancel").innerHTML = "Items Removed Successfully";
         }
 
         function payment() {
