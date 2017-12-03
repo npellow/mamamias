@@ -1,3 +1,16 @@
+<?php
+	session_start();
+	@ob_start();
+
+
+         if (isset($_SESSION['u_id'])) {
+            echo '<script type="text/javascript"> var msg = "'.$_SESSION['u_first'].'";</script>';
+
+        } else {
+          echo '<script type="text/javascript"> var msg = "";</script>';
+        }
+?>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -18,31 +31,43 @@
 
     <!-- nav bar -->
     <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index">Mama Mia's</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="menu">Menu</a></li>
-                    <li><a href="login">Sign In</a></li>                    <li><a href="suggestions">Suggestions</a></li>
-                    <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-                    <div class="float-right pull-right">
-                                            </div>
-                </ul>
-            </div>
+        <div class="container" id="mcon">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index">Mama Mia's</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="menu">Menu</a></li>
+              <?php if (!isset($_SESSION['u_id'])) {
+              echo   "<li><a href=\"login\">Sign In</a></li>";
+              }?>
+              <li><a href="suggestions">Suggestions</a></li>
+              <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+              <div class="float-right pull-right">
+              <?php
+                if (isset($_SESSION['u_id'])) {
+                  echo "Hi, {$_SESSION['u_first']}";
+                echo "<p id=\"loggedIn\">You are logged in!</p>";
+                echo '<form action="includes/logout.inc" method="POST">
+                  <button type="submit" name="submit" class="btn btn-default">Logout</button>
+                </form>';
+              }?>
+              </div>
+            </ul>
+
+          </div>
         </div>
-    </nav>
+      </nav>
     <!-- end nav bar -->
 
     <!-- start cart content -->
     <div class="container text-center" id="content">
-        
+
         <div id="div1">
             <h2 style="font-weight: bold; text-decoration: underline;">Totals for Pizza</h2>
             <h3 id="items"></h3>
@@ -224,15 +249,17 @@
 
         function orderComplete() {
 
-
             // thank you for your order message
             $(document).ready(function() {
+
                 $("#my-div").remove();
-                $('body').append('<div id="div4" class="text-center"><h2>Thank you for your order! <br> Your pizza will be ready for pickup in about 30 minutes!</h2></div>');
+
+                $('body').append('<div id="div4" class="text-center"><h2>'+ msg+' Thank you for your order!<br> Your pizza will be ready for pickup in about 30 minutes!</h2></div>');
+
                 var top = ($(window).height() - $(this).outerHeight()) / 2;
                 var left = ($(window).width() - $(this).outerWidth()) / 2;
                 localStorage.clear();
-                
+
             });
 
 

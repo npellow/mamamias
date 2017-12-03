@@ -153,6 +153,38 @@ $(document).ready(function() {
 
 
 });
+
+if (/Success/.test(window.location.href)){
+
+						setTimeout(function() {
+								window.location.reload(true);
+							}, 180000);
+
+							//vars
+						var div = document.createElement("div");
+						var diva = document.createElement("a");
+
+					//div
+						div.innerHTML = " <strong>Success</strong> You are registered please login";
+						div.classList.add('alert');
+						div.classList.add('alert-success');
+						div.classList.add('alert-dismissable');
+           	//diva
+						diva.innerHTML ='x';
+						diva.setAttribute('data-dismiss',"alert");
+						diva.setAttribute('aria-labe',"close");
+						diva.href='#';
+						diva.classList.add('close');
+					//add vars to dom
+						document.getElementById("mcon").appendChild(div);
+						div.appendChild(diva);
+						document.getElementById("loggedIn").innerHTML="";
+						div.id="statusMess3";
+						window.setTimeout(function () {
+						$("#statusMess3").alert('close'); }, 2000);
+
+
+					}
 </script>
 
     </body>

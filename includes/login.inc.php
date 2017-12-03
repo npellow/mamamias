@@ -56,6 +56,8 @@ phpAlert('hi');
                     $_SESSION['u_last']  = $row['user_lastname'];
                     $_SESSION['u_email'] = $row['user_email'];
                     $_SESSION['u_uid']   = $row['user_uid'];
+                    $SESSION["last_time"] = time();
+                     $SESSION["Message"]= 'Success';
                     header("Location: ../index?login=Success");
                     exit();
                 }

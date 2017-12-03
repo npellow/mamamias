@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	@ob_start();
+
 ?>
 
 <!DOCTYPE HTML>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="../customjs/userdefined.js"></script>
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
@@ -40,15 +42,15 @@
 
                       <i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                     <div class="float-right pull-right">
-  						<?php
-  						    if (isset($_SESSION['u_id'])) {
-  								echo "Hi, {$_SESSION['u_first']}";
-  								echo '<form action="includes/logout.inc" method="POST">
-  							        	<button type="submit" name="submit" class="btn btn-default">Logout</button>
-  									  </form>';
-  							}
-  						?>
-  					</div>
+  									<?php
+  										if (isset($_SESSION['u_id'])) {
+  										echo "Hi, {$_SESSION['u_first']}";
+  										echo '<form action="includes/logout.inc" method="POST">
+  											<button type="submit" name="submit" class="btn btn-default">Logout</button>
+  										</form>';
+  									 }
+  										?>
+  									</div>
                 </ul>
             </div>
         </div>
@@ -56,35 +58,107 @@
     <!-- end nav bar -->
 
     <!-- start page content -->
-
     <div class="container" id="content">
-        <ul class="nav nav-tabs">
-            <ul class="input">If you have a pizza choice suggestions, that we don't already have. Please let us know below.</ul>
-        </ul>
-    
-        <form name="contactform" method="post" action="send_form_email.php" class="tab-pane fade in active form-group">
-            <table width="450px">
-                <tr>
-                    </br>
-                    <label for="first_name">First Name *</label>
-                    <input style="background: #faffbd" type="text" name="first_name" class="form-control">
-                    </br>
-                    <label for="last_name">Last Name *</label>
-                    <input style="background: #faffbd" type="text" name="last_name" class="form-control">
-                    </br>
-                    <label for="email">Email Address *</label>
-                    <input style="background: #faffbd" type="text" name="email" class="form-control">
-                    </br>
-                    <label for="telephone">Telephone Number</label>
-                    <input style="background: #faffbd" type="text" name="telephone" class="form-control">
-                    </br>
-                    <label for="comments">Comments *</label>
-                    <textarea style="background: #faffbd" name="comments" maxlength="300" class="form-control"></textarea>
-                    </br>
-                    <input type="submit" value="Submit">
-                </tr>
-            </table>
-        </form>
+
+    <form name="contactform" method="post" action="send_form_email.php">
+
+
+
+
+
+			<div class="form-group row">
+			  <label for="example-text-input" class="col-2 col-form-label"> Name:</label>
+			  <div class="col-10">
+			    <input class="form-control" type="text" value="<?php if(isset($_SESSION['u_id'])){ echo  $_SESSION['u_first']. " " .$_SESSION['u_last'];} ?>" name="first_name">
+			  </div>
+			</div>
+			<div class="form-group row">
+
+			  <label for="example-email-input" class="col-2 col-form-label">Preferred Email:</label>
+			  <div class="col-10">
+			    <input class="form-control" type="email" value="<?php if(isset($_SESSION['u_id'])){ echo $_SESSION['u_email'];}?>" name="email">
+			  </div>
+			</div>
+
+			<div class="form-group row">
+			  <label for="example-color-input" class="col-2 col-form-label">Comments:</label>
+			  <div class="col-10">
+			     <textarea class="form-control" id="exampleTextarea" rows="3" name="comments"></textarea>
+			  </div>
+			</div>
+
+
+                    <input type="submit" value="Send Email"  class="btn btn-primary">
+                </td>
+            </tr>
+        </table>
+			</div >
+    </form>
+
     </div>
+
+		<script>
+		$(document).ready(function()
+			{
+				message= "<?php echo  $_SESSION['Message']; ?>";
+				if (message === 'Success') {
+
+    setTimeout(function() {
+      window.location.reload(true);
+    }, 1800000);
+
+    //vars
+    var div = document.createElement("div");
+    var diva = document.createElement("a");
+
+    //div
+    div.innerHTML = " <strong>Success</strong> You are logged in";
+    div.classList.add('alert');
+    div.classList.add('alert-success');
+    div.classList.add('alert-dismissable');
+    //diva
+    diva.innerHTML = 'x';
+    diva.setAttribute('data-dismiss', "alert");
+    diva.setAttribute('aria-labe', "close");
+    diva.href = '#';
+    diva.classList.add('close');
+    //add vars to dom
+    document.getElementById("mcon").appendChild(div);
+    div.appendChild(diva);
+    document.getElementById("loggedIn").innerHTML = "";
+    div.id = "statusMess0";
+    window.setTimeout(function() {
+      $("#statusMess0").alert('close');
+    }, 2000);
+
+
+
+  }
+				if (/Session/.test(window.location.href)) {
+    //vars
+    var divEr = document.createElement("div");
+    var divaEr = document.createElement("a");
+    //div
+    divEr.innerHTML = " <strong>Session invalid</strong> Your Session is terminated";
+    divEr.classList.add('alert');
+    divEr.classList.add('alert-danger');
+    divEr.classList.add('alert-dismissable');
+    //diva
+    divaEr.innerHTML = 'x';
+    divaEr.setAttribute('data-dismiss', "alert");
+    divaEr.setAttribute('aria-labe', "close");
+    divaEr.href = '#';
+    divaEr.classList.add('close');
+    //add vars to dom
+    document.getElementById("mcon").appendChild(divEr);
+    divEr.appendChild(divaEr);
+    divEr.id = "statusMess1";
+    window.setTimeout(function() {
+      $("#statusMess1").alert('close');
+    }, 2000);
+
+  }
+		});
+		</script>
 </body>
 </html>
