@@ -11,6 +11,8 @@
         }
 ?>
 
+<script type="text/javascript"> var msg = "";
+</script>
 <!DOCTYPE HTML>
 
 <html>
@@ -43,21 +45,10 @@
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
             <li><a href="menu">Menu</a></li>
-              <?php if (!isset($_SESSION['u_id'])) {
-              echo   "<li><a href=\"login\">Sign In</a></li>";
-              }?>
-              <li><a href="suggestions">Suggestions</a></li>
+              <li><a href="login">Sign In</a></li>              <li><a href="suggestions">Suggestions</a></li>
               <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
               <div class="float-right pull-right">
-              <?php
-                if (isset($_SESSION['u_id'])) {
-                  echo "Hi, {$_SESSION['u_first']}";
-                echo "<p id=\"loggedIn\">You are logged in!</p>";
-                echo '<form action="includes/logout.inc" method="POST">
-                  <button type="submit" name="submit" class="btn btn-default">Logout</button>
-                </form>';
-              }?>
-              </div>
+                            </div>
             </ul>
 
           </div>
@@ -69,7 +60,7 @@
     <div class="container text-center" id="content">
 
         <div id="div1">
-            <h2 style="font-weight: bold; text-decoration: underline;">Totals for Pizza</h2>
+          <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd">Totals for Pizza</h2>
             <h3 id="items"></h3>
             <h3 id="items2"></h3>
             <h3 id="items3"></h3>
@@ -223,6 +214,7 @@
             $('#my-btn').hide();
             $('#my-btn2').hide();
             document.getElementById("cancel").innerHTML = "Items Removed Successfully";
+						setTimeout(function () { if (self.name != 'refreshed'){ self.name = 'refreshed'; self.location.reload(true); } else { self.name = ''; } }, 3000);
         }
 
         //payment
@@ -254,7 +246,8 @@
 
                 $("#my-div").remove();
 
-                $('body').append('<div id="div4" class="text-center"><h2>'+ msg+' Thank you for your order!<br> Your pizza will be ready for pickup in about 30 minutes!</h2></div>');
+                $('body').append('<div id="div4" class="text-center"><h2>'+ msg+' Thank you for your order!<br> Your pizza will be ready for pickup in roughly 30 minutes!<br><br></h2></div>');
+                $('body').append('<div id="div4" class="text-center"><h3>Once you have picked up your order, and care to leave a comment on how your pizza was,<br>click on the suggestions tab and enter your receipt code that can be found at the bottom of your receipt</h3></div>');
 
                 var top = ($(window).height() - $(this).outerHeight()) / 2;
                 var left = ($(window).width() - $(this).outerWidth()) / 2;
@@ -266,6 +259,10 @@
 
 
         }
+
+				if(localStorage.length===0){
+				document.getElementById("totalhd").style.display = "none";
+				}
     </script>
 </body>
 

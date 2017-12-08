@@ -33,24 +33,13 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="menu">Menu</a></li>
-                    	<?php if (!isset($_SESSION['u_id'])) {
-                      echo   "<li><a href=\"login\">Sign In</a></li>";
-                      }?>
-
+                    <li><a href="login">Sign In</a></li>
                     <li><a href="suggestions">Suggestions</a></li>
                     <li><a href="cart">
 
                       <i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                     <div class="float-right pull-right">
-  									<?php
-  										if (isset($_SESSION['u_id'])) {
-  										echo "Hi, {$_SESSION['u_first']}";
-  										echo '<form action="includes/logout.inc" method="POST">
-  											<button type="submit" name="submit" class="btn btn-default">Logout</button>
-  										</form>';
-  									 }
-  										?>
-  									</div>
+  									  									</div>
                 </ul>
             </div>
         </div>
@@ -61,31 +50,37 @@
     <div class="container" id="content">
 
     <form name="contactform" method="post" action="send_form_email.php">
-
-
-
-
+      <h4>Do you have any suggestions for our page? Perhaps you would just like to ask us a question? If you have a recently ordered from us, please enter the code that can 
+         be found at the bottom of the receipt and tell us how your pizza was!</h4>
 
 			<div class="form-group row">
-			  <label for="example-text-input" class="col-2 col-form-label"> Name:</label>
+			  <label for="example-text-input" class="col-2 col-form-label">Name:</label>
 			  <div class="col-10">
-			    <input class="form-control" type="text" value="<?php if(isset($_SESSION['u_id'])){ echo  $_SESSION['u_first']. " " .$_SESSION['u_last'];} ?>" name="first_name">
+			    <input  style="background: #faffbd" class="form-control" type="text" value="" name="user_name">
 			  </div>
 			</div>
-			<div class="form-group row">
 
+			<div class="form-group row">
 			  <label for="example-email-input" class="col-2 col-form-label">Preferred Email:</label>
 			  <div class="col-10">
-			    <input class="form-control" type="email" value="<?php if(isset($_SESSION['u_id'])){ echo $_SESSION['u_email'];}?>" name="email">
+			    <input style="background: #faffbd" class="form-control"  type="email" value="" name="email">
 			  </div>
 			</div>
 
+      <div class="form-group row">
+			  <label for="example-text-input" class="col-2 col-form-label">Receipt Code:</label>
+			  <div class="col-10">
+			    <input  style="background: #faffbd" class="form-control" type="text" value="" name="receiptcode">
+			  </div>
+			</div>
+      
 			<div class="form-group row">
 			  <label for="example-color-input" class="col-2 col-form-label">Comments:</label>
 			  <div class="col-10">
-			     <textarea class="form-control" id="exampleTextarea" rows="3" name="comments"></textarea>
+			     <textarea style="background: #faffbd" class="form-control" id="exampleTextarea" rows="3" name="comments"></textarea>
 			  </div>
 			</div>
+
 
 
                     <input type="submit" value="Send Email"  class="btn btn-primary">
@@ -100,7 +95,7 @@
 		<script>
 		$(document).ready(function()
 			{
-				message= "<?php echo  $_SESSION['Message']; ?>";
+				message= "";
 				if (message === 'Success') {
 
     setTimeout(function() {
