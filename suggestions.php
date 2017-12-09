@@ -50,7 +50,7 @@
     <div class="container" id="content">
 
     <form name="contactform" method="post" action="send_form_email.php">
-      <h4>Do you have any suggestions for our page? Perhaps you would just like to ask us a question? If you have a recently ordered from us, please enter the code that can 
+      <h4>Do you have any suggestions for our page? Perhaps you would just like to ask us a question? If you have recently ordered from us, please enter the code that can 
          be found at the bottom of the receipt and tell us how your pizza was!</h4>
 
 			<div class="form-group row">
