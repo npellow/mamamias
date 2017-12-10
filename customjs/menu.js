@@ -31,24 +31,40 @@ $(document).ready(function() {
   });
 });
 
+
+
 function displayOnCartCheese() {
   var cheeseTotals = document.getElementById("resultCheese").innerHTML;
   localStorage.setItem("CheeseTotals", cheeseTotals);
+  if (!Number(localStorage.getItem("CheeseTotals")) == 0) {
+    alert('item added please check the cart');
+  }
 
 }
 
 function displayOnCartPepp() {
   var PeppTotals = document.getElementById("Pepp").innerHTML;
   localStorage.setItem("PeppTotals", PeppTotals);
+  if (!Number(localStorage.getItem("PeppTotals")) == 0) {
+    alert('item added please check the cart');
 
+  }
 }
 
 function displayOnCartVeg() {
   var vegTotals = document.getElementById("veg").innerHTML;
   localStorage.setItem("vegTotals", vegTotals);
+  if (!Number(localStorage.getItem("vegTotals")) == 0) {
+    alert('item added please check the cart');
+  }
+
 }
 
 function displayOnCartSausage() {
   var sausageTotals = document.getElementById("sausage").innerHTML;
   localStorage.setItem("sausageTotals", sausageTotals);
+  if (!Number(localStorage.getItem("sausage")) == 0) {
+    alert('item added please check the cart');
+
+  }
 }

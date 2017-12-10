@@ -74,11 +74,11 @@ session_start();
                           <form action="includes/login.inc" method="POST">
                             <div class="form-group">
                               <label for="email" >Email address:</label>
-                              <input type="text" name="uid" class="form-control"  >
+                              <input type="text" style="background: #faffbd"  name="uid" class="form-control"  >
                             </div>
                             <div class="form-group">
                               <label for="pwd">Password:</label>
-                              <input type="password" name="pwd" class="form-control" >
+                              <input type="password"  style="background: #faffbd" name="pwd" class="form-control" >
                             </div>
                             <div class="checkbox">
                               <label><input type="checkbox"> Remember me</label>
@@ -94,19 +94,19 @@ session_start();
                           <form action="includes/signup.inc" method="POST">
                             <div class="form-group">
                               <label for="fname">First name:</label>
-                              <input type="text"  name="first" class="form-control" id="fname">
+                              <input type="text" style="background: #faffbd"  name="first" class="form-control" id="fname">
                             </div>
                             <div class="form-group">
                               <label for="lname">Last name:</label>
-                              <input type="text"  name="last" class="form-control" id="lname">
+                              <input type="text" style="background: #faffbd"  name="last" class="form-control" id="lname">
                             </div>
                             <div class="form-group">
                               <label for="email">Email address:</label>
-                              <input type="email"  name="email" class="form-control" id="email">
+                              <input type="email" style="background: #faffbd"  name="email" class="form-control" id="email">
                             </div>
                             <div class="form-group">
                               <label for="pwd">Password:</label>
-                              <input type="password"  name="pwd" class="form-control" id="pwd">
+                              <input type="password" style="background: #faffbd"  name="pwd" class="form-control" id="pwd">
                             </div>
                             <div class="checkbox">
                               <label><input type="checkbox"> Remember me</label>

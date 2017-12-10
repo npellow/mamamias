@@ -40,7 +40,8 @@ function errorMessage(message) {
     var divEr = document.createElement("div");
     var divaEr = document.createElement("a");
     //div
-    divEr.innerHTML = " <strong>Session invalid</strong> Your Session is terminated";
+    divEr.innerHTML =
+      " <strong>Session invalid</strong> Your Session is terminated";
     divEr.classList.add('alert');
     divEr.classList.add('alert-danger');
     divEr.classList.add('alert-dismissable');
@@ -70,7 +71,7 @@ function loginErrorMessage() {
     //div
     var errorMess = new URL(window.location.href).searchParams.get("message");
 
-    div.innerHTML = " <b>Login Failed: <i>" + errorMess + "</i></b> Please login again, we could not verify your account";
+    div.innerHTML = " <b>Login Failed: <i>" + errorMess + "</i></b>";
     div.classList.add('alert');
     div.classList.add('alert-danger');
     div.classList.add('alert-dismissable');
@@ -79,12 +80,16 @@ function loginErrorMessage() {
     //diva
     diva.innerHTML = 'x';
     diva.setAttribute('data-dismiss', "alert");
-    diva.setAttribute('aria-labe', "close");
+    diva.setAttribute('aria-label', "close");
     diva.href = '#';
     diva.classList.add('close');
     //add vars to dom
     document.getElementById("mcon").appendChild(div);
     div.appendChild(diva);
+    window.setTimeout(function() {
+      $("#status").alert('close');
+    }, 2000);
+
   }
 }
 

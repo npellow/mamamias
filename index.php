@@ -2,9 +2,6 @@
 	session_start();
 	@ob_start();
 
-
-}
-}
 ?>
 
 <!DOCTYPE HTML>
@@ -16,8 +13,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link href="css/index.css" rel="stylesheet">
-				<script src="customjs\userdefined.js"></script>
+				<script src="customjs/userdefined.js"></script>
     </head>
     <body>
       <!-- nav bar -->
@@ -60,6 +58,10 @@
           <div class="container" id="content">
               <div class="jumbotron">
                   <img class="img-responsive" src="images/logo.jpg" alt="Mama Mia logo">
+									<?php
+										if (!isset($_SESSION['u_id'])) {
+											echo "<p>Please Login or Create an Account to make Ordering Easy<p>";
+									}?>
               </div>
           </div>
 					<script>

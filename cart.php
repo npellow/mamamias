@@ -32,35 +32,47 @@
 <body>
 
     <!-- nav bar -->
-    <nav class="navbar navbar-default">
-        <div class="container" id="mcon">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index">Mama Mia's</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="menu">Menu</a></li>
-              <li><a href="login">Sign In</a></li>              <li><a href="suggestions">Suggestions</a></li>
-              <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-              <div class="float-right pull-right">
-                            </div>
-            </ul>
+		<!-- nav bar -->
+		<nav class="navbar navbar-default">
+				<div class="container" id="mcon">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="index">Mama Mia's</a>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav navbar-nav navbar-right">
+						<li><a href="menu">Menu</a></li>
+							<?php if (!isset($_SESSION['u_id'])) {
+							echo   "<li><a href=\"login\">Sign In</a></li>";
+							}?>
+							<li><a href="suggestions">Suggestions</a></li>
+							<li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+							<div class="float-right pull-right">
+							<?php
+								if (isset($_SESSION['u_id'])) {
+									echo "Hi, {$_SESSION['u_first']}";
+								echo "<p id=\"loggedIn\">You are logged in!</p>";
+								echo '<form action="includes/logout.inc" method="POST">
+									<button type="submit" name="submit" class="btn btn-default">Logout</button>
+								</form>';
+							}?>
+							</div>
+						</ul>
 
-          </div>
-        </div>
-      </nav>
+					</div>
+				</div>
+			</nav>
     <!-- end nav bar -->
 
     <!-- start cart content -->
     <div class="container text-center" id="content">
 
         <div id="div1">
-          <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd">Totals for Pizza</h2>
+          <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd" >Totals for Pizza</h2>
             <h3 id="items"></h3>
             <h3 id="items2"></h3>
             <h3 id="items3"></h3>
@@ -263,6 +275,8 @@
 				if(localStorage.length===0){
 				document.getElementById("totalhd").style.display = "none";
 				}
+
+				
     </script>
 </body>
 
