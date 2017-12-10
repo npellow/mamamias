@@ -2,7 +2,7 @@
 
 try {
    // add own database with database my system
-    $conn = new PDO("mysql:host=usercreation;dbname=login system;","root","");
+    $conn = new PDO("mysql:host=localhost;dbname=login_system;","root","");
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 }   catch (Exception $e) {
     echo "Unable to connect to database to the login system database please create your own ";
