@@ -53,28 +53,28 @@
       <h4>Do you have any suggestions for our page? Perhaps you would just like to ask us a question? If you have recently ordered from us, please enter the code that can 
          be found at the bottom of the receipt and tell us how your pizza was!</h4>
 
-			<div class="form-group row">
+			<div class="form-group">
 			  <label for="example-text-input" class="col-2 col-form-label">Name:</label>
 			  <div class="col-10">
 			    <input  style="background: #faffbd" class="form-control" type="text" value="" name="user_name">
 			  </div>
 			</div>
 
-			<div class="form-group row">
+			<div class="form-group">
 			  <label for="example-email-input" class="col-2 col-form-label">Preferred Email:</label>
 			  <div class="col-10">
 			    <input style="background: #faffbd" class="form-control"  type="email" value="" name="email">
 			  </div>
 			</div>
 
-      <div class="form-group row">
+      <div class="form-group">
 			  <label for="example-text-input" class="col-2 col-form-label">Receipt Code:</label>
 			  <div class="col-10">
 			    <input  style="background: #faffbd" class="form-control" type="text" value="" name="receiptcode">
 			  </div>
 			</div>
       
-			<div class="form-group row">
+			<div class="form-group">
 			  <label for="example-color-input" class="col-2 col-form-label">Comments:</label>
 			  <div class="col-10">
 			     <textarea style="background: #faffbd" class="form-control" id="exampleTextarea" rows="3" name="comments"></textarea>
