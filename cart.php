@@ -70,7 +70,7 @@
 
     <!-- start cart content -->
     <div class="container text-center" id="content">
-
+    <div id="cartEmpty"><h1>The cart is currently empty</h1></div>
         <div id="div1">
           <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd" >Totals for Pizza</h2>
             <h3 id="items"></h3>
@@ -209,6 +209,7 @@
         total = Number(name) + Number(name1) + Number(name2) + Number(name3);
 
         if (!total == 0) {
+            $("#cartEmpty").remove();
             document.getElementById("totals").innerHTML = "Total Amount Due: $" + total;
             successButton.style.display = "inline";
             dangerButton.style.display = "inline";
