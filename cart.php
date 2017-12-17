@@ -273,10 +273,10 @@
         }
 
 				if(localStorage.length===0){
-				document.getElementById("totalhd").style.display = "none";
+				document.getElementById("totalhd").style.display = "Your Cart is Empty";
 				}
 
-				
+
     </script>
 </body>
 
