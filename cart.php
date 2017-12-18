@@ -78,7 +78,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 
     <!-- start cart content -->
     <div class="container text-center" id="content">
- <div id="cartEmpty"><h1>The cart is currently empty</h1></div>
+ 
         <div id="div1">
           <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd" >Totals for Pizza</h2>
             <h3 id="items"></h3>
@@ -283,7 +283,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 				if(localStorage.length===0){
 				document.getElementById("totalhd").style.display = "none";
 					$(document).ready(function() {
-						  
+						  $('body').append('<h3 id="center" style="text-align: center;">Please add something to the cart</h3>');
 				});
 }
 
