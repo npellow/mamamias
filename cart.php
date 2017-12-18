@@ -2,7 +2,7 @@
 	session_start();
 	@ob_start();
 	$length=12;
-	$chars = "1234567890ABCDEFGHIJK7890LMNOPQRSTUVWXYZabcdefghijk123456lmnopqrstuvwxyz123456";
+	$chars = "1234567890ABCDEFGHIJK7890LMNO22424354zPQRSTUVWXYZabcdefghij232546222k123456lmnopqrstuvwxyz123456032453";
 				 $clen   = strlen( $chars )-1;
 				 $id  = '';
 
@@ -63,7 +63,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 							<?php
 								if (isset($_SESSION['u_id'])) {
 									echo "Hi, {$_SESSION['u_first']}";
-								echo "<p id=\"loggedIn\">You are logged in!</p>";
+								echo "<p id=\"loggedIn\"></p>";
 								echo '<form action="includes/logout.inc" method="POST">
 									<button type="submit" name="submit" class="btn btn-default">Logout</button>
 								</form>';
@@ -78,7 +78,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 
     <!-- start cart content -->
     <div class="container text-center" id="content">
-    <div id="cartEmpty"><h1>The cart is currently empty</h1></div>
+ <div id="cartEmpty"><h1>The cart is currently empty</h1></div>
         <div id="div1">
           <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd" >Totals for Pizza</h2>
             <h3 id="items"></h3>
@@ -217,7 +217,6 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
         total = Number(name) + Number(name1) + Number(name2) + Number(name3);
 
         if (!total == 0) {
-            $("#cartEmpty").remove();
             document.getElementById("totals").innerHTML = "Total Amount Due: $" + total;
             successButton.style.display = "inline";
             dangerButton.style.display = "inline";
@@ -284,7 +283,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 				if(localStorage.length===0){
 				document.getElementById("totalhd").style.display = "none";
 					$(document).ready(function() {
-						  $('body').append('<h3 id="center" style="text-align: center;">Your cart is empty</h3>');
+						  
 				});
 }
 
