@@ -273,9 +273,11 @@
         }
 
 				if(localStorage.length===0){
-				document.getElementById("totalhd").style.display = "Your Cart is Empty";
-				}
-
+				document.getElementById("totalhd").style.display = "none";
+					$(document).ready(function() {
+						  $('body').append('<h3 id="center" style="text-align: center;">Your cart is empty</h3>');
+				});
+}
 
     </script>
 </body>

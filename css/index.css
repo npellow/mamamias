@@ -1,31 +1,69 @@
 .jumbotron {
-    text-align: center;
-    background: white;
+  text-align: center;
+  background: white;
 }
 
 .container {
-    background: white;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .btn-responsive {
+    padding: 8px 8px;
+    font-size: 80%;
+    /* line-height: 1; */
+    border-radius: 3px;
+    margin-left: -45px;
+    margin-top: -8px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    padding: 8px 8px;
+    margin: -25px;
+    font-size: 90%;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 4000px) {
+  .btn-responsive {
+    padding: 10px 10px;
+    margin: -15px;
+    font-size: 90%;
+    line-height: 1.2;
+  }
+}
+
+div#divSize {
+  max-width: 50%;
+  box-sizing: border-box;
+  margin: auto;
+  width: 50%;
+  border: 0.25px solid #e2dfdf;
+  padding: 10px
 }
 
 #loginbox {
-      margin-top: 2%;
-      margin-bottom: 2%;
-  }
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
 
 #content {
-    margin-top: 10%;
-    margin-bottom: 3%;
+  margin-top: 10%;
+  margin-bottom: 3%;
 }
 
 .row {
-    margin-top: 4%;
+  margin-top: 4%;
 }
 
 .pizzaImg {
-    border: 10px solid transparent;
-    margin-bottom: 25px;
-    
+  border: 10px solid transparent;
+  margin-bottom: 25px;
 }
+
 .pizzaImg:hover {
-    border-color: #ff5c33;
+  border-color: #ff5c33;
 }

@@ -17,6 +17,7 @@ session_start();
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/index.css" rel="stylesheet">
+
     </head>
     <body>
         <!-- nav bar -->
@@ -60,16 +61,15 @@ session_start();
 
           <!-- start login/sign up section -->
           <div class="container" id="content">
-                <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
-                        <li><a data-toggle="tab" href="#signup">Sign Up</a></li>
-                      </ul>
 
-                      <div class="tab-content">
+
+
+
+                      <div id="divSize"  class="row row-centered pos"><div class="tab-content">
 
                         <!-- login form -->
 
-                        <div id="login" class="tab-pane fade in active">
+                       <div id="login" >
                           <h3>Login</h3>
                           <form action="includes/login.inc" method="POST">
                             <div class="form-group">
@@ -85,43 +85,56 @@ session_start();
                             </div>
                             <button type="submit" name="submit" class="btn btn-default"  >Login</button>
                           </form>
-                        </div>
+                          <div class="row-fluid">  <div class="span6"><button style="position: relative;left: 85%;bottom: 27px"  id="removeLogin" class="btn btn-info btn-sm btn-responsive"><span class="glyphicon glyphicon-user"></span>Register</button>
+                        </div></div></div>
+
+
                         <!-- end login form -->
 
-                        <!-- sign up form -->
-                        <div id="signup" class="tab-pane fade">
-                          <h3>Sign Up</h3>
-                          <form action="includes/signup.inc" method="POST">
-                            <div class="form-group">
-                              <label for="fname">First name:</label>
-                              <input type="text" style="background: #faffbd"  name="first" class="form-control" id="fname">
-                            </div>
-                            <div class="form-group">
-                              <label for="lname">Last name:</label>
-                              <input type="text" style="background: #faffbd"  name="last" class="form-control" id="lname">
-                            </div>
-                            <div class="form-group">
-                              <label for="email">Email address:</label>
-                              <input type="email" style="background: #faffbd"  name="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                              <label for="pwd">Password:</label>
-                              <input type="password" style="background: #faffbd"  name="pwd" class="form-control" id="pwd">
-                            </div>
-                            <div class="checkbox">
-                              <label><input type="checkbox"> Remember me</label>
-                            </div>
-                            <button type="submit"  name="submit" class="btn btn-default">Submit</button>
-                          </form>
-                        </div>
-                        <!-- end sign up form -->
-                      </div>
+                        <!-- sign up form-->
+
 
 
           </div>
+          <div id="pDiv">
+          <div id="signup" >
+            <h3>Sign Up</h3>
+            <form action="includes/signup.inc" method="POST">
+              <div class="form-group">
+                <label for="fname">First name:</label>
+                <input type="text" style="background: #faffbd"  name="first" class="form-control" id="fname">
+              </div>
+              <div class="form-group">
+                <label for="lname">Last name:</label>
+                <input type="text" style="background: #faffbd"  name="last" class="form-control" id="lname">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" style="background: #faffbd"  name="email" class="form-control" id="email">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" style="background: #faffbd"  name="pwd" class="form-control" id="pwd">
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+              </div>
+              <button type="submit"  name="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div><div>
 <script>
 
 $(document).ready(function() {
+  var store = $( "#signup" ).detach();
+
+  $( "#removeLogin" ).click(function() {
+$("#pDiv").html(store);
+    $( "#login" ).detach();
+
+
+
+  });
+
 	if (/Invalid/.test(window.location.href)){
 		//vars
 	var div = document.createElement("div");
