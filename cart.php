@@ -1,18 +1,26 @@
 <?php
 	session_start();
 	@ob_start();
+	$length=12;
+	$chars = "1234567890ABCDEFGHIJK7890LMNOPQRSTUVWXYZabcdefghijk123456lmnopqrstuvwxyz123456";
+				 $clen   = strlen( $chars )-1;
+				 $id  = '';
 
+				 for ($i = 0; $i < $length; $i++) {
+								 $id .= $chars[mt_rand(0,$clen)];
+				 }
 
+echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>';
          if (isset($_SESSION['u_id'])) {
             echo '<script type="text/javascript"> var msg = "'.$_SESSION['u_first'].'";</script>';
+
 
         } else {
           echo '<script type="text/javascript"> var msg = "";</script>';
         }
 ?>
 
-<script type="text/javascript"> var msg = "";
-</script>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -258,8 +266,8 @@
 
                 $("#my-div").remove();
 
-                $('body').append('<div id="div4" class="text-center"><h2>'+ msg+' Thank you for your order!<br> Your pizza will be ready for pickup in roughly 30 minutes!<br><br></h2></div>');
-                $('body').append('<div id="div4" class="text-center"><h3>Once you have picked up your order, and care to leave a comment on how your pizza was,<br>click on the suggestions tab and enter your receipt code that can be found at the bottom of your receipt</h3></div>');
+                $('body').append('<div id="div4" class="text-center"><h2>'+ msg+' Thank you for your order!<br>Your confirmation number is '+ confirmationNum+'<br> Your pizza will be ready for pickup in roughly 30 minutes!<br><br></h2></div>');
+                $('body').append('<div id="div5" class="text-center"><h3>Once you have picked up your order, and care to leave a comment on how your pizza was,<br>click on the suggestions tab and enter your receipt code that can be found at the bottom of your receipt</h3></div>');
 
                 var top = ($(window).height() - $(this).outerHeight()) / 2;
                 var left = ($(window).width() - $(this).outerWidth()) / 2;
