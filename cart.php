@@ -13,10 +13,12 @@
 echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>';
          if (isset($_SESSION['u_id'])) {
             echo '<script type="text/javascript"> var msg = "'.$_SESSION['u_first'].'";</script>';
+						echo '<script type="text/javascript"> var user = "'.$uid = $_SESSION['u_email'].'";</script>';
 
 
         } else {
-          echo '<script type="text/javascript"> var msg = "";</script>';
+          echo '<script type="text/javascript"> var msg = " ";</script>';
+					echo '<script type="text/javascript"> var user = " ";</script>';
         }
 ?>
 
@@ -33,7 +35,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/index.css" rel="stylesheet">
-    <script src="customjs/menu.js"></script>
+
 
 </head>
 
@@ -55,9 +57,12 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 						<ul class="nav navbar-nav navbar-right">
 						<li><a href="menu">Menu</a></li>
 							<?php if (!isset($_SESSION['u_id'])) {
+
 							echo   "<li><a href=\"login\">Sign In</a></li>";
-							}?>
-							<li><a href="suggestions">Suggestions</a></li>
+							}
+							else{
+							echo   '<li><a href="orders">Orders</a></li>';}?>
+						  <li><a href="suggestions">Suggestions</a></li>
 							<li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
 							<div class="float-right pull-right">
 							<?php
@@ -68,6 +73,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 									<button type="submit" name="submit" class="btn btn-default">Logout</button>
 								</form>';
 							}?>
+
 							</div>
 						</ul>
 
@@ -78,7 +84,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 
     <!-- start cart content -->
     <div class="container text-center" id="content">
- 
+
         <div id="div1">
           <h2 style="font-weight: bold; text-decoration: underline;" id="totalhd" >Totals for Pizza</h2>
             <h3 id="items"></h3>
@@ -266,11 +272,22 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 
                 $("#my-div").remove();
 
-                $('body').append('<div id="div4" class="text-center"><h2>'+ msg+' Thank you for your order!<br>Your confirmation number is '+ confirmationNum+'<br> Your pizza will be ready for pickup in roughly 30 minutes!<br><br></h2></div>');
+                $('body').append('<div id="div4" class="text-center"><h2>'+msg+' Thank you for your order!<br>Your confirmation number is '+ confirmationNum+'<br> Your pizza will be ready for pickup in roughly 30 minutes!<br><br></h2></div>');
                 $('body').append('<div id="div5" class="text-center"><h3>Once you have picked up your order, and care to leave a comment on how your pizza was,<br>click on the suggestions tab and enter your receipt code that can be found at the bottom of your receipt</h3></div>');
 
                 var top = ($(window).height() - $(this).outerHeight()) / 2;
                 var left = ($(window).width() - $(this).outerWidth()) / 2;
+                var data ='confirmationNum='+confirmationNum+'&user='+user+'&total='+total;
+
+								$.ajax({
+							        url: "includes/ajax.php",
+							        type: "POST",
+							        data: data,
+											success: function(result){
+												console.log(result);
+											}
+    							});
+
                 localStorage.clear();
 
             });
@@ -283,7 +300,7 @@ echo '<script type="text/javascript"> var confirmationNum= "' .$id. '";</script>
 				if(localStorage.length===0){
 				document.getElementById("totalhd").style.display = "none";
 					$(document).ready(function() {
-						  $('body').append('<h3 id="center" style="text-align: center;">Please add something to the cart</h3>');
+						  $('body').append('<h3 id="center" style="text-align: center;">There are no items on the cart</h3>');
 				});
 }
 

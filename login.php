@@ -18,44 +18,47 @@ session_start();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/index.css" rel="stylesheet">
 
+
     </head>
     <body>
         <!-- nav bar -->
         <nav class="navbar navbar-default">
-            <div class="container" id="mcon">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index">Mama Mia's</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="menu">Menu</a></li>
-                  <?php if (!isset($_SESSION['u_id'])) {
-                  echo   "<li><a href=\"login\">Sign In</a></li>";
-                  }?>
-                  <li><a href="suggestions">Suggestions</a></li>
-                  <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-                  <div class="float-right pull-right">
-                  <?php
-                    if (isset($_SESSION['u_id'])) {
+    				<div class="container" id="mcon">
+    					<div class="navbar-header">
+    						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+    							<span class="icon-bar"></span>
+    							<span class="icon-bar"></span>
+    							<span class="icon-bar"></span>
+    						</button>
+    						<a class="navbar-brand" href="index">Mama Mia's</a>
+    					</div>
+    					<div class="collapse navbar-collapse" id="myNavbar">
+    						<ul class="nav navbar-nav navbar-right">
+    						<li><a href="menu">Menu</a></li>
+    							<?php if (!isset($_SESSION['u_id'])) {
 
-                    echo '<form action="includes/logout.inc" method="POST">
-                      <button type="submit" name="submit" class="btn btn-default">Logout</button>
-                    </form>';
-                   }
+    							echo   "<li><a href=\"login\">Sign In</a></li>";
+    							}
+    							else{
+    							echo   '<li><a href="orders">Orders</a></li>';}?>
+    						  <li><a href="suggestions">Suggestions</a></li>
+    							<li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+    							<div class="float-right pull-right">
+    							<?php
+    								if (isset($_SESSION['u_id'])) {
+    									echo "Hi, {$_SESSION['u_first']}";
+    								echo "<p id=\"loggedIn\"></p>";
+    								echo '<form action="includes/logout.inc" method="POST">
+    									<button type="submit" name="submit" class="btn btn-default">Logout</button>
+    								</form>';
+    							}?>
 
-                    ?>
-                  </div>
-                </ul>
+    							</div>
+    						</ul>
 
-
-              </div>
-            </div>
-          </nav>
+    					</div>
+    				</div>
+    			</nav>
           <!-- end nav bar -->
 
 
@@ -80,9 +83,7 @@ session_start();
                               <label for="pwd">Password:</label>
                               <input type="password"  style="background: #faffbd" name="pwd" class="form-control" >
                             </div>
-                            <div class="checkbox">
-                              <label><input type="checkbox"> Remember me</label>
-                            </div>
+
                             <button type="submit" name="submit" class="btn btn-default"  >Login</button>
                           </form>
                           <div class="row-fluid">  <div class="span6"><button style="position: relative;left: 85%;bottom: 27px"  id="removeLogin" class="btn btn-info btn-sm btn-responsive"><span class="glyphicon glyphicon-user"></span>Register</button>
@@ -116,24 +117,17 @@ session_start();
                 <label for="pwd">Password:</label>
                 <input type="password" style="background: #faffbd"  name="pwd" class="form-control" id="pwd">
               </div>
-              <div class="checkbox">
-                <label><input type="checkbox"> Remember me</label>
-              </div>
-              <button type="submit"  name="submit" class="btn btn-default">Submit</button>
+              <button type="submit"  name="submit" class="btn btn-primary btn-block">Create User</button>
             </form>
           </div><div>
 <script>
+var store = $( "#signup" ).detach();
 
 $(document).ready(function() {
-  var store = $( "#signup" ).detach();
-
-  $( "#removeLogin" ).click(function() {
+$( "#removeLogin" ).click(function() {
 $("#pDiv").html(store);
     $( "#login" ).detach();
-
-
-
-  });
+});
 
 	if (/Invalid/.test(window.location.href)){
 		//vars

@@ -7,6 +7,20 @@
   background: white;
 }
 
+div#divSize2 {
+  max-width: 50%;
+  box-sizing: border-box;
+  margin: auto;
+  width: 50%;
+  border: 0.25px solid #e2dfdf;
+  padding: 10px;
+  text-align: center;
+}
+
+h1#orders {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .btn-responsive {
     padding: 8px 8px;

@@ -21,40 +21,43 @@
 
         <!-- nav bar -->
 
-        <nav class="navbar navbar-default">
-            <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index">Mama Mia's</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="menu">Menu</a></li>
+				<nav class="navbar navbar-default">
+						<div class="container" id="mcon">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="index">Mama Mia's</a>
+							</div>
+							<div class="collapse navbar-collapse" id="myNavbar">
+								<ul class="nav navbar-nav navbar-right">
+								<li><a href="menu">Menu</a></li>
 									<?php if (!isset($_SESSION['u_id'])) {
+
 									echo   "<li><a href=\"login\">Sign In</a></li>";
-									}?>
-                  <li><a href="suggestions">Suggestions</a></li>
-                  <li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+									}
+									else{
+									echo   '<li><a href="orders">Orders</a></li>';}?>
+								  <li><a href="suggestions">Suggestions</a></li>
+									<li><a href="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
 									<div class="float-right pull-right">
 									<?php
 										if (isset($_SESSION['u_id'])) {
-                    echo "Hi, {$_SESSION['u_first']}";
-
+											echo "Hi, {$_SESSION['u_first']}";
+										echo "<p id=\"loggedIn\"></p>";
 										echo '<form action="includes/logout.inc" method="POST">
 											<button type="submit" name="submit" class="btn btn-default">Logout</button>
 										</form>';
-									 }
-										?>
-									</div>
-                </ul>
+									}?>
 
-              </div>
-            </div>
-          </nav>
+									</div>
+								</ul>
+
+							</div>
+						</div>
+					</nav>
           <!-- end nav bar -->
 
 

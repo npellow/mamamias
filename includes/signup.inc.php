@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
                     //Hashing the password
                     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
                     //Insert the user into the database
-                    $sql       = $conn->prepare("INSERT INTO users (user_firstname, user_lastname, user_email, user_pwd) VALUES (:first, :last, :email, :hashedPwd)");
+                    $sql  = $conn->prepare("INSERT INTO users (user_firstname, user_lastname, user_email, user_pwd) VALUES (:first, :last, :email, :hashedPwd)");
                     $sql->bindParam(':first', $first);
                     $sql->bindParam(':last', $last);
                     $sql->bindParam(':email', $email);

@@ -14,8 +14,8 @@ try {
 function test_connection() {
       try {
        // add own database with database my system
-        $conn = new PDO("mysql:host=usercreation;dbname=testdb;","root","");
-        $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $conn2 = new PDO("mysql:host=usercreation;dbname=testdb;","root","");
+        $conn2->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $testquery= $conn->prepare('SELECT * FROM testrecords');
         $testquery->execute();
         while ($row = $testquery->fetch(PDO::FETCH_ASSOC))
